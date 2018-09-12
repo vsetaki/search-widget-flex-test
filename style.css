@@ -1,3 +1,23 @@
+.block-1 {
+  background-color: #1a1a1a;
+}
+
+.block-2 {
+  background-color: #333333;
+}
+
+.block-3 {
+  background-color: #4d4d4d;
+}
+
+.block-4 {
+  background-color: #666666;
+}
+
+.block-5 {
+  background-color: gray;
+}
+
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8,7 +28,8 @@
           flex-flow: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  /* 960 */
+  /* < 960 */
+  /* < 440 */
 }
 
 .wrapper div {
@@ -34,9 +55,14 @@
       flex-basis: 100%;
 }
 
-.wrapper-medium .flex50 {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+.wrapper-medium div {
+  -ms-flex-preferred-size: 33.3%;
+      flex-basis: 33.3%;
+}
+
+.wrapper-medium .block-1 {
+  -ms-flex-preferred-size: 66.6%;
+      flex-basis: 66.6%;
 }
 
 .wrapper-small {

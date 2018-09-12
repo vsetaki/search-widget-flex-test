@@ -8,6 +8,23 @@
     }
 }
 
+
+.block-1 {
+    background-color: hsl(0, 0, 10%);
+}
+.block-2 {
+    background-color: hsl(0, 0, 20%);
+}
+.block-3 {
+    background-color: hsl(0, 0, 30%);
+}
+.block-4 {
+    background-color: hsl(0, 0, 40%);
+}
+.block-5 {
+    background-color: hsl(0, 0, 50%);
+}
+
 .wrapper {
     display: flex;
     flex-flow: row;
@@ -23,15 +40,20 @@
         }
     }
 
-    /* 960 */
+    /* < 960 */
     &-medium {
         @include commonForSmall;
 
-        .flex50 {
-            flex-basis: 50%;
+        div {
+            flex-basis: 33.3%;
+        }
+
+        .block-1 {
+            flex-basis: 66.6%;
         }
     }
 
+    /* < 440 */
     &-small {
         @include commonForSmall;
 
@@ -40,22 +62,3 @@
         }
     }
 }
-
-
-// @media only screen and (max-width: 960px) {
-//     .wrapper {
-//         flex-wrap: wrap;
-//     }
-//     .wrapper > div {
-//         flex-basis: 100%;
-//     }
-//     .wrapper .flex50 {
-//         flex-basis: 50%;
-//     }
-// }
-
-// @media only screen and (max-width: 500px) {
-//     .wrapper .flex50 {
-//         flex-basis: 100%;
-//     }
-// }
