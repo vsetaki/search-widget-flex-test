@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper" id="wrapper">
+        <div class="block"></div>
+        <div class="block flex50"></div>
+        <div class="block flex50"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    <br><br>
+    <br><br>
+    <div id="sizes">
+        <button>1200</button>
+        <button>900</button>
+        <button>450</button>
+    </div>
+
+    <script>
+        const sizes = document.getElementById('sizes');
+        const wrapper = document.getElementById('wrapper');
+        sizes.addEventListener('click', function(event) {
+            const { target } = event;
+            if (target.nodeName === 'BUTTON') {
+                wrapper.setAttribute('style', `width: ${target.innerText}px`);
+            }
+        });
+        const observer = new MutationObserver(function(mutations){
+            mutations.forEach(function(mutation) {
+                if (wrapper.clientWidth < 960 && wrapper.clientWidth > 500) {
+                    wrapper.classList.add('wrapper-medium');
+                    wrapper.classList.remove('wrapper-small');
+                } else if (wrapper.clientWidth <= 500) {
+                    wrapper.classList.add('wrapper-small');
+                    wrapper.classList.remove('wrapper-medium');
+                } else {
+                    wrapper.classList.remove('wrapper-small');
+                    wrapper.classList.remove('wrapper-medium');
+                }
+                console.log(wrapper.clientWidth);
+            });
+        });
+
+        observer.observe(wrapper, {attributes: true, attributeFilter: ['style']});
+    </script>
+</body>
+</html>

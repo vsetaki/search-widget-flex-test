@@ -1,0 +1,61 @@
+
+
+@mixin commonForSmall {
+    flex-wrap: wrap;
+
+    div {
+        flex-basis: 100%;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+
+    div {
+        flex-basis: 25%;
+        height: 50px;
+        box-shadow: inset 0 0 0 1px #ededed;
+
+        &:hover {
+            box-shadow: inset 0 0 0 3px red;
+        }
+    }
+
+    /* 960 */
+    &-medium {
+        @include commonForSmall;
+
+        .flex50 {
+            flex-basis: 50%;
+        }
+    }
+
+    &-small {
+        @include commonForSmall;
+
+        .flex50 {
+            flex-basis: 100%;
+        }
+    }
+}
+
+
+// @media only screen and (max-width: 960px) {
+//     .wrapper {
+//         flex-wrap: wrap;
+//     }
+//     .wrapper > div {
+//         flex-basis: 100%;
+//     }
+//     .wrapper .flex50 {
+//         flex-basis: 50%;
+//     }
+// }
+
+// @media only screen and (max-width: 500px) {
+//     .wrapper .flex50 {
+//         flex-basis: 100%;
+//     }
+// }

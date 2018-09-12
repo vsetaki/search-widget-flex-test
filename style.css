@@ -1,0 +1,56 @@
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  /* 960 */
+}
+
+.wrapper div {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  height: 50px;
+  -webkit-box-shadow: inset 0 0 0 1px #ededed;
+          box-shadow: inset 0 0 0 1px #ededed;
+}
+
+.wrapper div:hover {
+  -webkit-box-shadow: inset 0 0 0 3px red;
+          box-shadow: inset 0 0 0 3px red;
+}
+
+.wrapper-medium {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.wrapper-medium div {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+.wrapper-medium .flex50 {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+.wrapper-small {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.wrapper-small div {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+.wrapper-small .flex50 {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+/*# sourceMappingURL=style.css.map */
