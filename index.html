@@ -26,29 +26,42 @@
     <script>
         const sizes = document.getElementById('sizes');
         const wrapper = document.getElementById('wrapper');
+
         sizes.addEventListener('click', function(event) {
             const { target } = event;
             if (target.nodeName === 'BUTTON') {
-                wrapper.setAttribute('style', `width: ${target.innerText}px`);
+                wrapper.setAttribute('style', `max-width: ${target.innerText}px`);
             }
         });
-        const observer = new MutationObserver(function(mutations){
-            mutations.forEach(function(mutation) {
-                if (wrapper.clientWidth < 960 && wrapper.clientWidth > 500) {
-                    wrapper.classList.add('wrapper-medium');
-                    wrapper.classList.remove('wrapper-small');
-                } else if (wrapper.clientWidth <= 500) {
-                    wrapper.classList.add('wrapper-small');
-                    wrapper.classList.remove('wrapper-medium');
-                } else {
-                    wrapper.classList.remove('wrapper-small');
-                    wrapper.classList.remove('wrapper-medium');
-                }
-                console.log(wrapper.clientWidth);
-            });
-        });
 
-        observer.observe(wrapper, {attributes: true, attributeFilter: ['style']});
+        function setClassBySize(size) {
+            if (size < 960 && size > 500) {
+                wrapper.classList.add('wrapper-medium');
+                wrapper.classList.remove('wrapper-small');
+            } else if (size <= 500) {
+                wrapper.classList.add('wrapper-small');
+                wrapper.classList.remove('wrapper-medium');
+            } else {
+                wrapper.classList.remove('wrapper-small');
+                wrapper.classList.remove('wrapper-medium');
+            }
+            console.log(size);
+        }
+
+        (function(){
+            let oldWrapperWidth = wrapper.offsetWidth;
+            function observeWrapper() {
+                if (oldWrapperWidth !== wrapper.offsetWidth) {
+                    oldWrapperWidth = wrapper.offsetWidth;
+                    setClassBySize(wrapper.offsetWidth);
+                    console.log(wrapper.offsetWidth);
+                }
+
+                window.requestAnimationFrame(observeWrapper);
+            }
+
+            window.requestAnimationFrame(observeWrapper);
+        })(window);        
     </script>
 </body>
 </html>

@@ -8,21 +8,8 @@
     }
 }
 
-
-.block-1 {
-    background-color: hsl(0, 0, 10%);
-}
-.block-2 {
-    background-color: hsl(0, 0, 20%);
-}
-.block-3 {
-    background-color: hsl(0, 0, 30%);
-}
-.block-4 {
-    background-color: hsl(0, 0, 40%);
-}
-.block-5 {
-    background-color: hsl(0, 0, 50%);
+@for $i from 1 through 5 {
+    .block-#{$i} { background-color: hsl(0, 0, 10% * $i); }
 }
 
 .wrapper {
