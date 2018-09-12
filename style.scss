@@ -44,8 +44,12 @@
     &-small {
         @include commonForSmall;
 
-        .flex50 {
-            flex-basis: 100%;
+        .block-3 {
+            flex-basis: 40%;
+        }
+
+        .block-4 {
+            flex-basis: 60%;
         }
     }
 }

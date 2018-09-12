@@ -75,8 +75,13 @@
       flex-basis: 100%;
 }
 
-.wrapper-small .flex50 {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
+.wrapper-small .block-3 {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+}
+
+.wrapper-small .block-4 {
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
 }
 /*# sourceMappingURL=style.css.map */
